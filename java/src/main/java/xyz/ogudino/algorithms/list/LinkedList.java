@@ -20,4 +20,16 @@ public class LinkedList<T> {
         size = 1;
     }
 
+    public Node<T> searchList(Node<T> node, T data) {
+        if (node == null) {
+            return null;
+        }
+
+        if (node.data == data) {
+            return node;
+        } else {
+            return searchList(node.next, data);
+        }
+    }
+
 }
