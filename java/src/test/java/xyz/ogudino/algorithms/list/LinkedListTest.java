@@ -1,4 +1,4 @@
-package xyz.ogudino.alorithms.list;
+package xyz.ogudino.algorithms.list;
 
 import org.junit.jupiter.api.Test;
 

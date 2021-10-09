@@ -1,4 +1,4 @@
-package xyz.ogudino.alorithms.list;
+package xyz.ogudino.algorithms.list;
 
 public class LinkedList<T> {
 
