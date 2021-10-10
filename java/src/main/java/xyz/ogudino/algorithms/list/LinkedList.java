@@ -1,5 +1,7 @@
 package xyz.ogudino.algorithms.list;
 
+import java.util.StringJoiner;
+
 public class LinkedList<T> {
 
     public static class Node<T> {
@@ -20,11 +22,14 @@ public class LinkedList<T> {
         size = 1;
     }
 
-    public Node<T> searchList(T data) {
-        return searchList(head, data);
+    public void insert(T data) {
+        Node<T> node = new Node<>(data);
+        node.next = head;
+        head = node;
+        size++;
     }
 
-    private Node<T> searchList(Node<T> node, T data) {
+    private Node<T> search(Node<T> node, T data) {
         if (node == null) {
             return null;
         }
@@ -32,8 +37,50 @@ public class LinkedList<T> {
         if (node.data == data) {
             return node;
         } else {
-            return searchList(node.next, data);
+            return search(node.next, data);
         }
+    }
+
+    public Node<T> search(T data) {
+        return search(head, data);
+    }
+
+    private Node<T> predecessorNode(Node<T> node, T data) {
+        if (node == null || node.next == null) {
+            System.err.println("Error: predecessor sought on null list.");
+            return null;
+        }
+
+        if (node.next.data.equals(data)) {
+            return node;
+        } else {
+            return predecessorNode(node.next, data);
+        }
+    }
+
+    public void delete(T data) {
+        Node<T> toDelete = search(data);
+
+        if (toDelete != null) {
+            Node<T> pred = predecessorNode(head, data);
+            if (pred == null) {
+                head = head.next;
+            } else {
+                pred.next = toDelete.next;
+            }
+            size--;
+        }
+    }
+
+    @Override
+    public String toString() {
+        StringJoiner joiner = new StringJoiner(",");
+        Node<T> node = head;
+        while (node != null) {
+            joiner.add(String.valueOf(node.data));
+            node = node.next;
+        }
+        return joiner.toString();
     }
 
 }
