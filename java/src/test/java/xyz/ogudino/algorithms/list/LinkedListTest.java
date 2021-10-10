@@ -19,7 +19,7 @@ class LinkedListTest {
     public void simpleSearchFound() {
         int data = 5;
         LinkedList<Integer> list = new LinkedList<>(data);
-        Node<Integer> node = list.searchList(list.head, data);
+        Node<Integer> node = list.searchList(data);
         assertNotNull(node);
         assertEquals(data, node.data);
     }
@@ -28,7 +28,7 @@ class LinkedListTest {
     public void simpleSearchNotFound() {
         int data = 5;
         LinkedList<Integer> list = new LinkedList<>(data);
-        Node<Integer> node = list.searchList(list.head, data - 1);
+        Node<Integer> node = list.searchList(data - 1);
         assertNull(node);
     }
 

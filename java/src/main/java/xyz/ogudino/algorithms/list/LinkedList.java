@@ -20,7 +20,11 @@ public class LinkedList<T> {
         size = 1;
     }
 
-    public Node<T> searchList(Node<T> node, T data) {
+    public Node<T> searchList(T data) {
+        return searchList(head, data);
+    }
+
+    private Node<T> searchList(Node<T> node, T data) {
         if (node == null) {
             return null;
         }
