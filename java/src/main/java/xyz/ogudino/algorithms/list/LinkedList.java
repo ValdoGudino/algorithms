@@ -64,12 +64,7 @@ public class LinkedList<T> {
         if (toDelete != null) {
             Node<T> pred = predecessorNode(head, data);
 
-            // Guard against a "fake" predecessor node
-            if (toDelete.equals(pred)) {
-                pred = predecessorNode(head.next, data);
-            }
-
-            if (pred == null) {
+            if (pred == null || toDelete.equals(pred)) {
                 head = head.next;
             } else {
                 pred.next = toDelete.next;
