@@ -91,13 +91,9 @@ class LinkedListTest {
         list.insert(data);
         assertEquals("5,5", list.toString());
 
-        // TO-DO Figure out why the code below fails
-        // to delete seems to fail because it expects "5,5"
-        // this is likely a corner case
-
-        // list.delete(data);
-        // list.delete(data);
-        // assertEquals("", list.toString());
+        list.delete(data);
+        list.delete(data);
+        assertEquals("", list.toString());
     }
 
 }
