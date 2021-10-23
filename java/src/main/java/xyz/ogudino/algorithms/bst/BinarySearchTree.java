@@ -94,4 +94,21 @@ public class BinarySearchTree<T extends Comparable<T>> {
         return list;
     }
 
+    public List<T> inOrderTransversal() {
+        List<T> list = new ArrayList<>();
+
+        list = inOrderTransversal(root, list);
+
+        return list;
+    }
+
+    private List<T> inOrderTransversal(Node<T> node, List<T> list) {
+        if (node != null) {
+            inOrderTransversal(node.left, list);
+            list.add(node.data);
+            inOrderTransversal(node.right, list);
+        }
+        return list;
+    }
+
 }

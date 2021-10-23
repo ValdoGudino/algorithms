@@ -75,4 +75,17 @@ class BinarySearchTreeTest {
         tree.insert(-10);
         assertEquals(1, tree.max().data);
     }
+
+    @Test
+    public void inOrderTransversal() {
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+        tree.insert(-1);
+        tree.insert(0);
+        tree.insert(1);
+        List<Integer> list = new ArrayList<>();
+        list.add(-1);
+        list.add(0);
+        list.add(1);
+        assertEquals(list, tree.inOrderTransversal());
+    }
 }
