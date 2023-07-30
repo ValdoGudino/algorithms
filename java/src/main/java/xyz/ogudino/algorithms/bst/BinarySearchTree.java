@@ -30,11 +30,13 @@ public class BinarySearchTree<T extends Comparable<T>> {
             return new Node<>(data, parent);
         }
 
+        // This implementation does not allow for duplicates.
         if (data.compareTo(node.data) < 0) {
             node.left = insert(node.left, data, node);
         } else if (data.compareTo(node.data) > 0) {
             node.right = insert(node.right, data, node);
         }
+
         return node;
     }
 
@@ -97,18 +99,17 @@ public class BinarySearchTree<T extends Comparable<T>> {
     public List<T> inOrderTransversal() {
         List<T> list = new ArrayList<>();
 
-        list = inOrderTransversal(root, list);
+        inOrderTransversal(root, list);
 
         return list;
     }
 
-    private List<T> inOrderTransversal(Node<T> node, List<T> list) {
+    private void inOrderTransversal(Node<T> node, List<T> list) {
         if (node != null) {
             inOrderTransversal(node.left, list);
             list.add(node.data);
             inOrderTransversal(node.right, list);
         }
-        return list;
     }
 
 }
